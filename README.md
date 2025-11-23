@@ -41,6 +41,14 @@ Use the `-o` or `--output` flag to save the extracted content as a Markdown file
 python main.py https://some-url.com/article -o my-article.md
 ```
 
+**Debugging:**
+
+Use the `--debug` flag to enable debug logging, which provides extra information about the parsing process, such as image inclusion decisions.
+
+```bash
+python main.py https://some-url.com/article --debug
+```
+
 ### As a Library
 
 You can also use `pyreadability` as a library in your own Python projects.

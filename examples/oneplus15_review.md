@@ -468,9 +468,9 @@ Next story
 
   2. 2. Oops. Cryptographers cancel election results after losing decryption key.
 
-  3. 3. How to know if your Asus router is one of thousands hacked by China-state hackers
+  3. 3. Why you don’t want to get tuberculosis on your penis
 
-  4. 4. Why you don’t want to get tuberculosis on your penis
+  4. 4. How to know if your Asus router is one of thousands hacked by China-state hackers
 
   5. 5. Return to the year 2000 with classic multiplayer DOS games in your browser
 

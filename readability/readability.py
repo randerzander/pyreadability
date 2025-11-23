@@ -344,6 +344,23 @@ class Readability:
         else:
              article_content.append(top_candidate_node)
 
+        if self._debug:
+            print("--- Image Debugging ---")
+            images = article_content.find_all('img')
+            print(f"Found {len(images)} images in article content.")
+            for img in images:
+                src = img.get('src', 'No src attribute')
+                parent = img.parent
+                score = 'N/A'
+                # Traverse up to find a parent with a readability score
+                while parent and (not hasattr(parent, 'readability') or not parent.readability):
+                    parent = parent.parent
+
+                if parent and hasattr(parent, 'readability') and parent.readability:
+                    score = parent.readability.get('content_score', 'N/A')
+
+                print(f"Image: {src}, Parent Score: {score}, Decision: Included")
+
         return article_content
 
     def _initialize_node(self, node):
@@ -418,9 +435,20 @@ class Readability:
                     if cls in self.classes_to_preserve:
                         preserved_classes.append(cls)
             
+            # Preserve essential attributes for certain elements
+            preserved_attrs = {}
+            if el.name in ['img', 'picture', 'figure', 'video', 'audio', 'source']:
+                for attr in ['src', 'srcset', 'alt', 'poster', 'width', 'height']:
+                    if el.has_attr(attr):
+                        preserved_attrs[attr] = el[attr]
+            elif el.name == 'a':
+                if el.has_attr('href'):
+                    preserved_attrs['href'] = el['href']
+            
             el.attrs = {} # remove all attributes
             if preserved_classes:
                 el['class'] = preserved_classes
+            el.attrs.update(preserved_attrs)
 
     def _clean_styles(self, article_content):
         for e in article_content.find_all(True):
