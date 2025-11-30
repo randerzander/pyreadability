@@ -4,16 +4,28 @@ A pure Python implementation of Mozilla's Readability.js. This library extracts 
 
 ## Installation
 
+### Option 1: Install directly from GitHub (Recommended)
+
+```bash
+pip install git+https://github.com/randerzander/pyreadability.git
+```
+
+### Option 2: Install from local clone
+
 1.  Clone the repository:
     ```bash
     git clone https://github.com/randerzander/pyreadability.git
     cd pyreadability
     ```
 
-2.  Install the dependencies:
+2.  Install with pip:
     ```bash
-    pip install -r requirements.txt
+    pip install .
     ```
+
+    Or for development (editable install):
+    ```bash
+    pip install -e .
 
 ## Usage
 
@@ -24,13 +36,13 @@ You can use `pyreadability` from the command line to extract content from a URL 
 **From a URL:**
 
 ```bash
-python main.py https://github.blog/ai-and-ml/github-copilot/how-were-making-github-copilot-smarter-with-fewer-tools/
+pyreadability https://github.blog/ai-and-ml/github-copilot/how-were-making-github-copilot-smarter-with-fewer-tools/
 ```
 
 **From a local file:**
 
 ```bash
-python main.py /path/to/your/file.html
+pyreadability /path/to/your/file.html
 ```
 
 **Saving the output to a file:**
@@ -38,7 +50,7 @@ python main.py /path/to/your/file.html
 Use the `-o` or `--output` flag to save the extracted content as a Markdown file.
 
 ```bash
-python main.py https://some-url.com/article -o my-article.md
+pyreadability https://some-url.com/article -o my-article.md
 ```
 
 **Debugging:**
@@ -46,7 +58,7 @@ python main.py https://some-url.com/article -o my-article.md
 Use the `--debug` flag to enable debug logging, which provides extra information about the parsing process, such as image inclusion decisions.
 
 ```bash
-python main.py https://some-url.com/article --debug
+pyreadability https://some-url.com/article --debug
 ```
 
 ### As a Library
