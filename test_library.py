@@ -3,7 +3,7 @@
 
 import sys
 from bs4 import BeautifulSoup
-from readability import Readability, fetch_html, parse_html
+from pyreadability import Readability, fetch_html, parse_html
 import html2text
 
 def test_basic_import():

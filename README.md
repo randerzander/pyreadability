@@ -67,15 +67,15 @@ You can also use `pyreadability` as a library in your own Python projects.
 
 ```python
 import requests
-from bs4 import BeautifulSoup
-from readability.readability import Readability
+from pyreadability import Readability
 import html2text
 
 url = 'https://github.blog/ai-and-ml/github-copilot/how-were-making-github-copilot-smarter-with-fewer-tools/'
 response = requests.get(url)
-doc = BeautifulSoup(response.text, 'lxml')
 
-readability = Readability(doc, url=url)
+# Pass HTML directly - Readability handles parsing
+# Accepts: HTML string, bytes, or BeautifulSoup object
+readability = Readability(response.text, url=url)
 article = readability.parse()
 
 # The article content is in HTML

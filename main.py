@@ -6,8 +6,7 @@ import requests
 from pathlib import Path
 from urllib.parse import urlparse
 from bs4 import BeautifulSoup
-from readability.readability import Readability
-from readability.helpers import fetch_html, read_html_file, parse_html
+from pyreadability import Readability, fetch_html, read_html_file, parse_html
 
 def download_images(article_content, output_path, debug=False):
     """Download images from article content and update their paths."""

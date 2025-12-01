@@ -2,7 +2,7 @@ import unittest
 import os
 from subprocess import Popen, PIPE
 from bs4 import BeautifulSoup
-from readability.readability import Readability, is_probably_readerable
+from pyreadability import Readability, is_probably_readerable
 
 class TestReadability(unittest.TestCase):
     def test_is_probably_readerable(self):

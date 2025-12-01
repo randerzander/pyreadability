@@ -85,7 +85,13 @@ class Readability:
     DIV_TO_P_ELEMS = {"blockquote", "dl", "div", "img", "ol", "p", "pre", "table", "ul"}
 
     def __init__(self, doc, **options):
-        self.doc = doc
+        if isinstance(doc, (str, bytes)):
+            self.doc = BeautifulSoup(doc, 'lxml')
+        elif hasattr(doc, 'name'):
+            self.doc = doc
+        else:
+            raise TypeError("doc must be a BeautifulSoup object, HTML string, or bytes")
+        
         self.url = options.get('url')
         self._article_title = None
         self._article_byline = None
