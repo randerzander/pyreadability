@@ -4,13 +4,21 @@ A pure Python implementation of Mozilla's Readability.js. This library extracts 
 
 ## Installation
 
-### Option 1: Install directly from GitHub (Recommended)
+### Option 1: Install from PyPI (Recommended)
+
+Once published to PyPI, you can install with:
+
+```bash
+pip install pyreadability
+```
+
+### Option 2: Install directly from GitHub
 
 ```bash
 pip install git+https://github.com/randerzander/pyreadability.git
 ```
 
-### Option 2: Install from local clone
+### Option 3: Install from local clone
 
 1.  Clone the repository:
     ```bash
@@ -88,3 +96,20 @@ markdown_content = h.handle(html_content)
 print(f"Title: {article['title']}")
 print(markdown_content)
 ```
+
+## Development
+
+### Building the Package
+
+To build the package for distribution:
+
+```bash
+./build.sh
+```
+
+This creates wheel and source distributions in the `dist/` directory.
+
+### Publishing to PyPI
+
+See [PUBLISHING.md](PUBLISHING.md) for detailed instructions on publishing to PyPI.
+
