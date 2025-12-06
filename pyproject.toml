@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools>=45", "wheel", "setuptools_scm[toml]>=6.2"]
+requires = ["setuptools>=68.0.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -12,17 +12,18 @@ license = {text = "MIT"}
 authors = [
     {name = "pyreadability contributors"}
 ]
+keywords = ["readability", "html", "parser", "content-extraction", "web-scraping", "mozilla"]
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Intended Audience :: Developers",
     "Topic :: Text Processing :: Markup :: HTML",
-    "License :: OSI Approved :: MIT License",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.7",
     "Programming Language :: Python :: 3.8",
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
 ]
 dependencies = [
     "requests",
@@ -34,9 +35,15 @@ dependencies = [
 [project.urls]
 Homepage = "https://github.com/randerzander/pyreadability"
 Repository = "https://github.com/randerzander/pyreadability"
+Issues = "https://github.com/randerzander/pyreadability/issues"
 
 [tool.setuptools]
 py-modules = ["main"]
+license-files = ["LICENSE"]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["pyreadability*"]
 
 [project.scripts]
 pyreadability = "main:main"
